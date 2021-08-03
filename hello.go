@@ -1,8 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	for i, arg := range os.Args {
+		if i == 0 {
+			// Name of the executable
+			fmt.Printf("Executable: %s\n", arg)
+		} else {
+			Greeter(arg)
+		}
+	}
 }
-
