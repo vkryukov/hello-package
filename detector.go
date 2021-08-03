@@ -1,18 +1,12 @@
-package main
+package hello
 
 import (
 	"bufio"
 	"fmt"
 	"github.com/endeveit/guesslanguage"
-	"os"
 )
 
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("What's you name? ")
-	scanner.Scan()
-	Greeter(scanner.Text())
-
+func RunDetector(scanner *bufio.Scanner) {
 	for {
 		fmt.Print("Enter some text: ")
 		scanner.Scan()

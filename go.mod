@@ -1,4 +1,4 @@
-module hello-package
+module github.com/vkryukov/hello-package
 
 go 1.16
 
