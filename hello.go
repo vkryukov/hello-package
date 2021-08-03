@@ -1,17 +1,26 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"github.com/endeveit/guesslanguage"
 	"os"
 )
 
 func main() {
-	for i, arg := range os.Args {
-		if i == 0 {
-			// Name of the executable
-			fmt.Printf("Executable: %s\n", arg)
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Print("What's you name? ")
+	scanner.Scan()
+	Greeter(scanner.Text())
+
+	for {
+		fmt.Print("Enter some text: ")
+		scanner.Scan()
+		language, err := guesslanguage.Guess(scanner.Text())
+		if err != nil {
+			fmt.Printf("Error detecting language: %s\n", err)
 		} else {
-			Greeter(arg)
+			fmt.Printf("Detected language: %s\n", language)
 		}
 	}
 }
